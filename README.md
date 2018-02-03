@@ -5,13 +5,13 @@ The builder_admin can create a list of all items in game ("all_items_in_game.txt
 choose the blocks a builder-player can get. For that only delete the lines with blocks/tools or item you dont't want that builder-player can get. Save the file in worldpath with the filename: "allowed_items_for_builder.txt" 
 	
 	
-# Dependencies
+#x Dependencies
 default 
 unified_inventory
 3d_armor?
 
 
-# Installation
+#x Installation
 Copy the modfolder to your mods.
 As long as you did not create your own 'allowed_items_for_builder.txt' - copy this file from the builer mod to   minetest.get_worldpath().."/players/.
 To create your own List:
@@ -19,26 +19,24 @@ login as world-/admin-player and use the chat-command 'builder make_list' or giv
 Modify the file minetest.get_worldpath().."/players/" path with the filename "all_items_in_game.txt" and rename it to 'allowed_items_for_builder.txt'
 Now all player with the builder privileg can get the allowed items and blocks as beeing creative.  
 
-#commands
-builder make_list
-	the buiilder_admin can create a list of all items in game 
-	the list is saved in the minetest.get_worldpath().."/players/" path with the filename "all_items_in_game.txt"
+## Commands
+* '/builder make_list'
+	* the buiilder_admin can create a list of all items in game 
+	* the list is saved in the minetest.get_worldpath().."/players/" path with the filename "all_items_in_game.txt"
 	
 
-# Version
-0.1		initial - register unified_inventory button,	
-				privilegs "builder" for the player
-				"builder_admin" for the builder admin
-				command (builder_admin) to get a lsit of all items in the game
+## Version
+* 0.1		initial - register unified_inventory button,
+    * privilegs "builder" for the player
+    * "builder_admin" for the builder admin
+    * command (builder_admin) to get a lsit of all items in the game
 				
-0.2 	override some unified_inventory function
-				- minetest.register_on_player_receive_fields(function(player, formname, fields)
-					to check for builder privileg
-				- function unified_inventory.apply_filter(player, filter, search_dir)
-					to check for builder privileg
+* 0.2 	override some unified_inventory function
+    * minetest.register_on_player_receive_fields(function(player, formname, fields) to check for builder privileg
+    * function unified_inventory.apply_filter(player, filter, search_dir)	to check for builder privileg
 					
-0.3		some tools an armor for builder - they don't protect and don't do fleshy damage
-0.4 	some first tests, creating a first list of allowed items as allowed_items_for_builder.txt
+* 0.3		some tools an armor for builder - they don't protect and don't do fleshy damage
+* 0.4 	some first tests, creating a first list of allowed items as allowed_items_for_builder.txt
 
 
 # textures
