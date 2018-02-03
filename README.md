@@ -39,12 +39,14 @@ Now all player with the builder privileg can get the allowed items and blocks as
 * 0.4 	some first tests, creating a first list of allowed items as allowed_items_for_builder.txt
 
 
-# textures
-the armor from 3d armor
-the tools from default tools
+# Textures
+* the armor from 3d armor
+* the tools from default tools
 
 # License
 Copyright (C) 2018 Ralf Weinert - email. ralf.weinert@gmx.de
-Code: Licensed under the GNU LGPL version 2.1 or later. See LICENSE.txt and http://www.gnu.org/licenses/lgpl-2.1.txt 
+
+Code: Licensed under the GNU LGPL version 2.1 or later. 
+See LICENSE.txt and http://www.gnu.org/licenses/lgpl-2.1.txt 
 
 
