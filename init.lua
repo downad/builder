@@ -84,15 +84,15 @@ end
 function builder.player_can_get_this_item(item_by_name)
 	local item_allowed = false
 	for key,line in pairs(builder.allowed_items) do
-		print("line: "..line.." - searchitem: "..item_by_name)
-		-- for the exakt search the name must be mask
+		-- print("line: "..line.." - searchitem: "..item_by_name)
+		-- for the exact search the name must be mask
 		-- if 'default:mese' is not allowed the 'default:meselamp' will allow the 'default:mese' 
 		local test_line = line.."#"
 		local test_item_by_name = item_by_name.."#"
 		-- is the block / item allowed?		
 		if string.find(test_line, test_item_by_name, 1, true) then
 			item_allowed =  true
-			builder.print_log("builder: player can get this block/item: "..item_by_name,builder.PRINT_MODNAME_NO)
+			-- builder.print_log("builder: player can get this block/item: "..item_by_name,builder.PRINT_MODNAME_NO)
 		end
 	end
 	builder.print_log("builder: player can get this block/item: "..item_by_name.." yes/no "..tostring(item_allowed),builder.PRINT_MODNAME_YES)

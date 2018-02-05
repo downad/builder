@@ -122,9 +122,12 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
 			local stack = ItemStack(clicked_item)
 			if inv:room_for_item("main", stack) then
 				-- is this item allowed?
-				if builder.player_can_get_this_item(stack:get_name()) then
+				local item_by_name = stack:get_name()
+				if builder.player_can_get_this_item(item_by_name) then
 					stack:set_count(stack:get_stack_max())
 					inv:add_item("main", stack)
+				else
+					minetest.chat_send_player( player_name, "Builder-Mod: "..player_name..", this block/item ("..item_by_name..") is not allowed to get.");
 				end
 			end
 			-- end builder mod override 
