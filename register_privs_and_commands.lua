@@ -1,8 +1,8 @@
 
 -- define a new privileg
 -- a builder can use the creative-menu, but the admin can restict items 
-minetest.register_privilege("builder", "Player can get items like being creative.")
-minetest.register_privilege("builder_admin", "The admin can create the list.")
+minetest.register_privilege("builder", "Player can get allowed items like being creative.")
+minetest.register_privilege("builder_admin", "The admin can create the allowed_item_list.")
 
 -- chatcommand 
 -- builder make_list 

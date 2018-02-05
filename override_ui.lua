@@ -1,4 +1,4 @@
-
+-- builder mod by Downad 
 -- override this function 
 -- ask for builder privileg to give item
 minetest.register_on_player_receive_fields(function(player, formname, fields)
@@ -95,11 +95,14 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
 		if player_creative then 
 			page = "creative_yes"
 		end
-		-- builder mod check builder privileg
---		if  minetest.check_player_privs(player_name, {builder=true}) then
+		
+		-- builder mod override by downad 
+		-- check builder privileg
+		-- if minetest.check_player_privs(player_name, {builder=true}) then
 		if  builder.is_builder(player_name) then
 			page = "builder_yes"
 		end
+		-- end builder mod override 
 		
 		-- not creative / creative World or builder privileges
 		if page == "craftguide" then
@@ -113,20 +116,18 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
 			if inv:room_for_item("main", stack) then
 				inv:add_item("main", stack)
 			end
-			-- builder mod by downad 
---		elseif minetest.check_player_privs(player_name, {builder=true})  then -- by downad
-		elseif builder.is_builder(player_name)  then -- by downad
+		-- builder mod override by downad 
+		elseif builder.is_builder(player_name)  then 
 			local inv = player:get_inventory()
 			local stack = ItemStack(clicked_item)
-			
 			if inv:room_for_item("main", stack) then
-				-- teste ob das item erlaubt ist
+				-- is this item allowed?
 				if builder.player_can_get_this_item(stack:get_name()) then
 					stack:set_count(stack:get_stack_max())
 					inv:add_item("main", stack)
 				end
 			end
-			-- end builder mod by downad
+			-- end builder mod override 
 		end
 	end
 
@@ -181,7 +182,8 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
 			unified_inventory.current_page[player_name])
 end)
 
--- override this filter-function
+-- builder mod by Downad 
+-- override the filter-function
 --apply filter to the inventory list (create filtered copy of full one)
 function unified_inventory.apply_filter(player, filter, search_dir)
 	if not player then
@@ -216,7 +218,7 @@ function unified_inventory.apply_filter(player, filter, search_dir)
 		and def.description
 		and def.description ~= ""
 		and ffilter(name, def)
-		-- builder mod - >insert here the builder privileg 
+		-- builder mod by Downad -> insert here ask for builder privileg 
 		and (is_creative or unified_inventory.crafts_for.recipe[def.name] or builder.is_builder(player_name)) then
 			table.insert(unified_inventory.filtered_items_list[player_name], name)
 		end

@@ -1,5 +1,5 @@
 -- Builder Armor
--- builder armor dont protect against fleschy damage
+-- builder armor don't protect against fleschy damage
 -- copy and modified from 3d armor
 	armor:register_armor("builder:helmet_builder", {
 		description = "Builder Helmet",

@@ -5,13 +5,13 @@ The builder_admin can create a list of all items in game ("all_items_in_game.txt
 choose the blocks a builder-player can get. For that only delete the lines with blocks/tools or item you dont't want that builder-player can get. Save the file in worldpath with the filename: "allowed_items_for_builder.txt" 
 	
 	
-#x Dependencies
-default 
-unified_inventory
-3d_armor?
+# Dependencies
+    * default 
+    * unified_inventory
+    * 3d_armor?
 
 
-#x Installation
+# Installation
 Copy the modfolder to your mods.
 As long as you did not create your own 'allowed_items_for_builder.txt' - copy this file from the builer mod to   minetest.get_worldpath().."/players/.
 To create your own List:
@@ -37,6 +37,7 @@ Now all player with the builder privileg can get the allowed items and blocks as
 					
 * 0.3		some tools an armor for builder - they don't protect and don't do fleshy damage
 * 0.4 	some first tests, creating a first list of allowed items as allowed_items_for_builder.txt
+* 0.5		load file "allowed_item_for_builder.txt" into a table. Check item for this table. 
 
 
 # Textures
@@ -47,6 +48,7 @@ Now all player with the builder privileg can get the allowed items and blocks as
 Copyright (C) 2018 Ralf Weinert - email. ralf.weinert@gmx.de
 
 Code: Licensed under the GNU LGPL version 2.1 or later. 
+
 See LICENSE.txt and http://www.gnu.org/licenses/lgpl-2.1.txt 
 
 

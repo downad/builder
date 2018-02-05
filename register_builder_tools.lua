@@ -1,5 +1,5 @@
 -- Builder Tools
--- buildertools do no fleshy damage
+-- builder tools do no fleshy damage
 -- pickaxe
 minetest.register_tool("builder:pick_diamond", {
 	description = "Builder Pickaxe",
