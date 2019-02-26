@@ -21,7 +21,7 @@ Now all player with the builder privileg can get the allowed items and blocks as
 
 ## Commands
 * '/builder make_list'
-	* the buiilder_admin can create a list of all items in game 
+	* the builder_admin can create a list of all items in game 
 	* the list is saved in the minetest.get_worldpath().."/players/" path with the filename "all_items_in_game.txt"
 	
 
