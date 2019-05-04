@@ -99,7 +99,7 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
 		-- builder mod override by downad 
 		-- check builder privileg
 		-- if minetest.check_player_privs(player_name, {builder=true}) then
-		if  builder.is_builder(player_name) then
+		if  builder:is_builder(player_name) then
 			page = "builder_yes"
 		end
 		-- end builder mod override 
@@ -117,15 +117,16 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
 				inv:add_item("main", stack)
 			end
 		-- builder mod override by downad 
-		elseif builder.is_builder(player_name)  then 
+		elseif builder:is_builder(player_name)  then 
 			local inv = player:get_inventory()
 			local stack = ItemStack(clicked_item)
 			if inv:room_for_item("main", stack) then
 				-- is this item allowed?
 				local item_by_name = stack:get_name()
-				if builder.player_can_get_this_item(item_by_name) then
+				if builder:player_can_get_this_item(item_by_name) then
 					stack:set_count(stack:get_stack_max())
 					inv:add_item("main", stack)
+					builder:create_log(player_name,item_by_name)
 				else
 					minetest.chat_send_player( player_name, "Builder-Mod: "..player_name..", this block/item ("..item_by_name..") is not allowed to get.");
 				end
@@ -187,7 +188,7 @@ end)
 
 -- builder mod by Downad 
 -- override the filter-function
---apply filter to the inventory list (create filtered copy of full one)
+-- apply filter to the inventory list (create filtered copy of full one)
 function unified_inventory.apply_filter(player, filter, search_dir)
 	if not player then
 		return false
@@ -222,7 +223,7 @@ function unified_inventory.apply_filter(player, filter, search_dir)
 		and def.description ~= ""
 		and ffilter(name, def)
 		-- builder mod by Downad -> insert here ask for builder privileg 
-		and (is_creative or unified_inventory.crafts_for.recipe[def.name] or builder.is_builder(player_name)) then
+		and (is_creative or unified_inventory.crafts_for.recipe[def.name] or builder:is_builder(player_name)) then
 			table.insert(unified_inventory.filtered_items_list[player_name], name)
 		end
 	end
